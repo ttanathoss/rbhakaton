@@ -5,8 +5,8 @@ import GridEngine from "grid-engine";
 const gameConfig: Types.Core.GameConfig = {
   title: "Finish hero",
   type: Phaser.AUTO,
-  width: 768, // 12 tiles x 16px x 4 zoom
-  height: 512, // 8 tiles x 16px x 4 zoom
+  width: 832, // 13 tiles x 16px x 4 zoom
+  height: 576, // 9 tiles x 16px x 4 zoom
   parent: "game",
   roundPixels: true,
   antialias: false,
