@@ -22,7 +22,7 @@ const config = {
       },
     },
   },
-  // scene: [Game, GameOver],
+  scene: [Lander],
 };
 
 new Phaser.Game(config);

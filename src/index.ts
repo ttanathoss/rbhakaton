@@ -1,9 +1,9 @@
 import { Game, Types } from "phaser";
-import { GameScene } from "./scenes";
+import { TestScene } from "./scenes";
 import GridEngine from "grid-engine";
 
 const gameConfig: Types.Core.GameConfig = {
-  title: "Mooncraft",
+  title: "Finish hero",
   type: Phaser.AUTO,
   width: 768, // 12 tiles x 16px x 4 zoom
   height: 512, // 8 tiles x 16px x 4 zoom
@@ -14,8 +14,8 @@ const gameConfig: Types.Core.GameConfig = {
   physics: {
     default: "arcade",
     arcade: {
-      debug: false,
-      // debug: true,
+      // debug: false,
+      debug: true,
       gravity: {
         y: 1000,
       },
@@ -31,7 +31,7 @@ const gameConfig: Types.Core.GameConfig = {
   audio: {
     disableWebAudio: false,
   },
-  scene: [GameScene],
+  scene: [TestScene],
   plugins: {
     scene: [
       {
