@@ -1,5 +1,5 @@
 .yarn/*
-!.yarn/versions
+!.yarn/releases
 node_modules
-.parcel-cache
-dist
+.cache
+build

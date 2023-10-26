@@ -1,10 +1,8 @@
-import fs from "fs";
-import { Parcel } from "@parcel/core";
-
+const fs = require("fs");
 const paths = {
   build: {
-    root: "./dist",
-    assets: "./dist/assets",
+    root: "./build",
+    assets: "./build/assets",
   },
   src: {
     imageAssets: "./src/assets/img",
@@ -37,26 +35,11 @@ if (!fs.existsSync(paths.build.assets)) {
   }
 }
 
-// require("child_process").spawn(
-//   "parcel",
-//   ["index.html", "--no-autoinstall", "--open", "--dist-dir", "dist"],
-//   {
-//     stdio: ["ignore", "inherit", "inherit"],
-//     shell: true,
-//   }
-// );
-
-const bundler = new Parcel({
-  entries: "index.html",
-  shouldAutoInstall: false,
-  defaultConfig: "@parcel/config-default",
-  serveOptions: {
-    port: 3000,
-  },
-  hmrOptions: {
-    port: 3000,
-  },
-});
-
-console.log("Starting on http://localhost:3000/");
-await bundler.watch();
+require("child_process").spawn(
+  "parcel",
+  ["index.html", "--no-autoinstall", "--open", "--out-dir", "build"],
+  {
+    stdio: ["ignore", "inherit", "inherit"],
+    shell: true,
+  }
+);

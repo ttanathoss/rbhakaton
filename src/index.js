@@ -23,15 +23,6 @@ const config = {
     },
   },
   // scene: [Game, GameOver],
-  scene: {
-    preload: preload,
-    create: create,
-    update: update,
-  },
 };
-
-function preload() {}
-function create() {}
-function update() {}
 
 new Phaser.Game(config);

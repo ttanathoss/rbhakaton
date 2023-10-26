@@ -1,28 +1,23 @@
 {
   "name": "rbhakaton",
   "version": "1.0.0",
-  "browserslist": "> 0.5%, last 2 versions, not dead",
+  "main": "index.js",
   "scripts": {
-    "start": "node scripts/start.mjs"
+    "start": "node scripts/start.js"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ttanathoss/rbhakaton.git"
   },
+  "keywords": [],
   "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/ttanathoss/rbhakaton/issues"
-  },
   "homepage": "https://github.com/ttanathoss/rbhakaton#readme",
   "dependencies": {
-    "phaser": "^3.60.0"
+    "phaser": "3.52.0"
   },
   "devDependencies": {
-    "@parcel/config-default": "^2.10.1",
-    "@parcel/core": "^2.10.1",
-    "parcel": "^2.10.1",
-    "process": "^0.11.10",
+    "parcel-bundler": "1.12.4",
     "sass": "1.32.5"
   }
 }
