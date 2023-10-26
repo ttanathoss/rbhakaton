@@ -32,7 +32,6 @@ export class LevelScene extends Scene {
   create(): void {
     this.initMap();
 
-    this.player = new Player(this);
     this.player = new Player(this).collideWith(this.platformsLayer);
 
     this.initCamera();
