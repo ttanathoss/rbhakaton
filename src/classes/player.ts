@@ -13,6 +13,7 @@ export class Player extends Actor {
     if (input.left.isDown) {
       this.setVelocityX(-200).setFlipX(true);
       this.getBody().onFloor() && this.play("run", true);
+      this.reFollowPlayer();
     } else if (input.right.isDown) {
       this.setVelocityX(200).setFlipX(false);
       this.getBody().onFloor() && this.play("run", true);
