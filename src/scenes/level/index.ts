@@ -58,7 +58,7 @@ export class LevelScene extends Scene {
       tileHeight: 16,
     });
     this.testTileset = this.map.addTilesetImage("map-tileset", "game-tiles"); // (tileset-name-from-Tiled, image.key )
-    this.platformsLayer = this.map.createLayer("platforms", this.testTileset, 0, 0); // (layer-name-from-Tiled, Tileset)
     this.backgroundLayer = this.map.createLayer("background", this.testTileset, 0, 0); // (layer-name-from-Tiled, Tileset)
+    this.platformsLayer = this.map.createLayer("platforms", this.testTileset, 0, 0); // (layer-name-from-Tiled, Tileset)
   }
 }
