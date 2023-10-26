@@ -24,7 +24,7 @@ export class Player extends Actor {
       this.setVelocityX(0);
       this.getBody().onFloor() && this.play("idle", true);
     }
-    if (input.space.isDown && this.getBody().onFloor()) {
+    if (input.up.isDown && this.getBody().onFloor()) {
       this.setVelocityY(-400);
       this.play("jump", true);
     }
