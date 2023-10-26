@@ -6,6 +6,7 @@ export class LevelScene extends Scene {
   private map!: Tilemaps.Tilemap;
   private testTileset!: Tilemaps.Tileset;
   private platformsLayer!: Tilemaps.TilemapLayer;
+  private backgroundLayer!: Tilemaps.TilemapLayer;
 
   private landerTileset!: Tilemaps.Tileset;
   private groundLayer!: Tilemaps.TilemapLayer;
@@ -21,7 +22,7 @@ export class LevelScene extends Scene {
 
     this.load.image({
       key: "game-tiles",
-      url: "tilemaps/tiles/mario-bg-tiles.png",
+      url: "tilemaps/tiles/game-tiles.png",
     });
     this.load.tilemapTiledJSON("game-map", "tilemaps/json/sec-try.json");
   }
@@ -29,6 +30,7 @@ export class LevelScene extends Scene {
   create(): void {
     this.initMap();
 
+    this.player = new Player(this);
     this.player = new Player(this).collideWith(this.platformsLayer);
 
     this.initCamera();
@@ -52,5 +54,6 @@ export class LevelScene extends Scene {
     });
     this.testTileset = this.map.addTilesetImage("map-tileset", "game-tiles"); // (tileset-name-from-Tiled, image.key )
     this.platformsLayer = this.map.createLayer("platforms", this.testTileset, 0, 0); // (layer-name-from-Tiled, Tileset)
+    this.backgroundLayer = this.map.createLayer("background", this.testTileset, 0, 0); // (layer-name-from-Tiled, Tileset)
   }
 }
