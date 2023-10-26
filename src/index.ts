@@ -1,6 +1,5 @@
 import { Game, Types } from "phaser";
 import { LevelScene } from "./scenes";
-import GridEngine from "grid-engine";
 
 const gameConfig: Types.Core.GameConfig = {
   title: "Finish hero",
@@ -14,7 +13,6 @@ const gameConfig: Types.Core.GameConfig = {
   physics: {
     default: "arcade",
     arcade: {
-      // debug: false,
       debug: true,
       gravity: {
         y: 1000,
@@ -32,15 +30,6 @@ const gameConfig: Types.Core.GameConfig = {
     disableWebAudio: false,
   },
   scene: [LevelScene],
-  plugins: {
-    scene: [
-      {
-        key: "gridEngine",
-        plugin: GridEngine,
-        mapping: "gridEngine",
-      },
-    ],
-  },
 };
 
 window.game = new Game(gameConfig);
