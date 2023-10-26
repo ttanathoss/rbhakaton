@@ -1,7 +1,7 @@
 import { Physics } from "phaser";
 
 export class Actor extends Physics.Arcade.Sprite {
-  private collider!: any;
+  private collider!: Physics.Arcade.Collider;
 
   constructor(scene: Phaser.Scene, x: number, y: number, texture: string, frame?: string | number) {
     super(scene, x, y, texture, frame);
@@ -12,6 +12,7 @@ export class Actor extends Physics.Arcade.Sprite {
 
   collideWith(gameObject: any) {
     this.collider = this.scene.physics.add.collider(this, gameObject);
+
     return this;
   }
 

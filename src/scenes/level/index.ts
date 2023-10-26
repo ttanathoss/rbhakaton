@@ -1,4 +1,4 @@
-import { GameObjects, Tilemaps, Scene } from "phaser";
+import { GameObjects, Tilemaps, Scene, Types } from "phaser";
 import { Player } from "../../classes/player";
 
 export class LevelScene extends Scene {
@@ -12,13 +12,15 @@ export class LevelScene extends Scene {
   private groundLayer!: Tilemaps.TilemapLayer;
   private furnitureLayer!: Tilemaps.TilemapLayer;
 
+  private inputs!: Types.Input.Keyboard.CursorKeys;
+
   constructor() {
     super("level-scene");
   }
 
   preload(): void {
     this.load.baseURL = "assets/";
-    this.load.atlas("astronaut", "spritesheets/astronaut.png", "spritesheets/astronaut_atlas.json");
+    this.load.atlas("player", "spritesheets/astronaut.png", "spritesheets/astronaut_atlas.json");
 
     this.load.image({
       key: "game-tiles",
@@ -35,15 +37,18 @@ export class LevelScene extends Scene {
 
     this.initCamera();
 
-    this.platformsLayer.setCollisionByExclusion([-1], true)
+    this.platformsLayer.setCollisionByExclusion([-1], true);
+
+    this.inputs = this.input.keyboard.createCursorKeys();
   }
 
   update(): void {
+    this.player.update(this.inputs);
   }
 
   private initCamera(): void {
-    this.cameras.main.startFollow(this.player, false);
-    this.cameras.main.zoom = 4;
+    this.cameras.main.setBounds(0, 0, this.map.widthInPixels, this.map.heightInPixels).startFollow(this.player, false);
+    this.cameras.main.zoom = 1;
   }
 
   private initMap(): void {
