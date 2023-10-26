@@ -1,7 +1,7 @@
 import { GameObjects, Tilemaps, Scene } from "phaser";
 import { Player } from "../../classes/player";
 
-export class TestScene extends Scene {
+export class LevelScene extends Scene {
   private player!: GameObjects.Sprite;
   private map!: Tilemaps.Tilemap;
   private testTileset!: Tilemaps.Tileset;
@@ -12,7 +12,7 @@ export class TestScene extends Scene {
   private furnitureLayer!: Tilemaps.TilemapLayer;
 
   constructor() {
-    super("test-scene");
+    super("level-scene");
   }
 
   preload(): void {
@@ -50,7 +50,7 @@ export class TestScene extends Scene {
       tileWidth: 16,
       tileHeight: 16,
     });
-    this.testTileset = this.map.addTilesetImage("map-tileset", "game-tiles"); // (file-name, tileset-name-from-Tiled)
+    this.testTileset = this.map.addTilesetImage("map-tileset", "game-tiles"); // (tileset-name-from-Tiled, image.key )
     this.platformsLayer = this.map.createLayer("platforms", this.testTileset, 0, 0); // (layer-name-from-Tiled, Tileset)
   }
 }

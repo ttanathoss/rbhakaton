@@ -1,5 +1,5 @@
 import { Game, Types } from "phaser";
-import { TestScene } from "./scenes";
+import { LevelScene } from "./scenes";
 import GridEngine from "grid-engine";
 
 const gameConfig: Types.Core.GameConfig = {
@@ -31,7 +31,7 @@ const gameConfig: Types.Core.GameConfig = {
   audio: {
     disableWebAudio: false,
   },
-  scene: [TestScene],
+  scene: [LevelScene],
   plugins: {
     scene: [
       {
