@@ -20,7 +20,7 @@ export class LevelScene extends Scene {
   private score: number;
 
   constructor() {
-    super("level-scene");
+    super("LevelScene");
 
     this.timeLeft = 3 * 1000; //in ms
     this.score = 0;

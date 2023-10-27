@@ -1,12 +1,12 @@
 import { Game, Types } from "phaser";
-import { LevelScene } from "./scenes";
+import { IntroScene, LevelScene } from "./scenes";
 import GameOverScene from "./scenes/gameOver";
 
 const gameConfig: Types.Core.GameConfig = {
   title: "Finish hero",
   type: Phaser.AUTO,
-  width: 832, // 13 tiles x 16px x 4 zoom
-  height: 576, // 9 tiles x 16px x 4 zoom
+  width: 768, // 12 tiles x 16px x 4 zoom
+  height: 512, // 8 tiles x 16px x 4 zoom
   parent: "game",
   roundPixels: true,
   antialias: false,
@@ -30,7 +30,7 @@ const gameConfig: Types.Core.GameConfig = {
   audio: {
     disableWebAudio: false,
   },
-  scene: [LevelScene, GameOverScene],
+  scene: [IntroScene, LevelScene, GameOverScene],
 };
 
 window.game = new Game(gameConfig);
