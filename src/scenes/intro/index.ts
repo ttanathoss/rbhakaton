@@ -1,4 +1,6 @@
 import { Scene, Types } from "phaser";
+import { toggleScoreTime } from "../../ui/updateUI";
+import { CANVAS_X, CANVAS_Y } from "../../ui/const";
 
 export class IntroScene extends Scene {
   private cursors!: Types.Input.Keyboard.CursorKeys;
@@ -8,6 +10,8 @@ export class IntroScene extends Scene {
   }
 
   preload(): void {
+    toggleScoreTime(false);
+
     this.load.baseURL = "assets/";
     this.load.image({
       key: "intro",
@@ -16,7 +20,7 @@ export class IntroScene extends Scene {
   }
 
   create() {
-    this.add.image(768 / 2, 512 / 2, 'intro').setScale(4);
+    this.add.image(CANVAS_X / 2, CANVAS_Y / 2, "intro").setScale(4);
   }
 
   update() {

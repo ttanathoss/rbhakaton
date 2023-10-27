@@ -42,13 +42,17 @@
         top: 5px;
         right: 5px;
       }
+
+      .hidden {
+        visibility: hidden;
+      }
     </style>
   </head>
   <body>
     <div class="game-wrap">
       <div class="game" id="game">
-        <div class="score">Score: <span id="score-amount">0</span></div>
-        <div class="timer"><span id="timer-amount">0</span> s</div>
+        <div class="score hidden">Score: <span id="score-amount">0</span></div>
+        <div class="timer hidden"><span id="timer-amount">0</span> s</div>
       </div>
     </div>
   </body>

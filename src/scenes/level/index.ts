@@ -1,7 +1,7 @@
 import { Tilemaps, Scene, Types } from "phaser";
 import { Player } from "../../classes/player";
 import { Coin } from "../../classes/coin";
-import { updateDisplayedScore, updateDisplayedTimeLeft } from "../../ui/updateUI";
+import { updateDisplayedScore, updateDisplayedTimeLeft, toggleScoreTime } from "../../ui/updateUI";
 
 export class LevelScene extends Scene {
   private player!: Player;
@@ -22,11 +22,13 @@ export class LevelScene extends Scene {
   constructor() {
     super("LevelScene");
 
-    this.timeLeft = 3 * 1000; //in ms
+    this.timeLeft = 30 * 1000; //in ms
     this.score = 0;
   }
 
   preload(): void {
+    toggleScoreTime(true);
+
     this.load.baseURL = "assets/";
     this.load.atlas("player", "spritesheets/mr_finish_walk_jump_sheet.png", "spritesheets/mr_finish_atlas.json");
     this.load.atlas("plate", "spritesheets/plate_1.png", "spritesheets/plate_atlas.json");

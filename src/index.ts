@@ -1,12 +1,13 @@
 import { Game, Types } from "phaser";
 import { IntroScene, LevelScene } from "./scenes";
 import GameOverScene from "./scenes/gameOver";
+import { CANVAS_X, CANVAS_Y } from "./ui/const";
 
 const gameConfig: Types.Core.GameConfig = {
   title: "Finish hero",
   type: Phaser.AUTO,
-  width: 768, // 12 tiles x 16px x 4 zoom
-  height: 512, // 8 tiles x 16px x 4 zoom
+  width: CANVAS_X,
+  height: CANVAS_Y,
   parent: "game",
   roundPixels: true,
   antialias: false,
