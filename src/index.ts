@@ -1,5 +1,6 @@
 import { Game, Types } from "phaser";
 import { LevelScene } from "./scenes";
+import GameOverScene from "./scenes/gameOver";
 
 const gameConfig: Types.Core.GameConfig = {
   title: "Finish hero",
@@ -29,7 +30,7 @@ const gameConfig: Types.Core.GameConfig = {
   audio: {
     disableWebAudio: false,
   },
-  scene: [LevelScene],
+  scene: [LevelScene, GameOverScene],
 };
 
 window.game = new Game(gameConfig);

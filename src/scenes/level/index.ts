@@ -89,7 +89,7 @@ export class LevelScene extends Scene {
     this.input.keyboard.shutdown();
 
     setTimeout(() => {
-      this.scene.start("LevelScene");
-    }, 1500);
+      this.scene.start("GameOverScene");
+    }, 1000);
   }
 }
