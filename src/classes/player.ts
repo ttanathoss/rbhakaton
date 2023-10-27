@@ -42,20 +42,20 @@ export class Player extends Actor {
     this.scene.anims.create({
       key: "jump",
       frames: this.scene.anims.generateFrameNames("player", {
-        prefix: "move-up-",
-        end: 3,
+        prefix: "jump-",
+        end: 8,
       }),
-      frameRate: 4,
-      repeat: -1,
+      frameRate: 16,
+      repeat: 0,
     });
 
     this.scene.anims.create({
       key: "run",
       frames: this.scene.anims.generateFrameNames("player", {
         prefix: "move-right-",
-        end: 3,
+        end: 7,
       }),
-      frameRate: 4,
+      frameRate: 16,
       repeat: -1,
     });
 

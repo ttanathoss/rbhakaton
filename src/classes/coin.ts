@@ -11,9 +11,26 @@ export class Coin {
       allowGravity: false,
     });
 
-    const coinSprites = this.scene.map.createFromObjects("items");
+
+    // plate
+    scene.anims.create({
+      key: 'rotate',
+      frames: scene.anims.generateFrameNames('plate', {
+        prefix: 'plate-',
+        end: 7,
+      }),
+      frameRate: 10,
+      repeat: -1
+    });
+
+    const coinSprites = this.scene.map.createFromObjects('items');
     for (const coin of coinSprites) {
-      coin.setTexture("player").setScale(1).setOrigin(0).setDepth(-1).setDepth(1);
+      coin.setTexture('plate')
+        .play("rotate", true)
+        .setScale(1)
+        .setOrigin(0)
+        .setDepth(-1)
+        .setDepth(1);
       this.coins.add(coin);
     }
     return this;

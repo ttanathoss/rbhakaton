@@ -28,7 +28,8 @@ export class LevelScene extends Scene {
 
   preload(): void {
     this.load.baseURL = "assets/";
-    this.load.atlas("player", "spritesheets/astronaut.png", "spritesheets/astronaut_atlas.json");
+    this.load.atlas("player", "spritesheets/mr_finish_walk_jump_sheet.png", "spritesheets/mr_finish_atlas.json");
+    this.load.atlas("plate", "spritesheets/plate_1.png", "spritesheets/plate_atlas.json");
 
     this.load.image({
       key: "game-tiles",
