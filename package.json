@@ -5,7 +5,9 @@
   "scripts": {
     "start": "cross-env NODE_ENV=development webpack serve",
     "build": "cross-env NODE_ENV=production webpack --progress",
-    "prettier": "npx prettier --check ./src/**/*.{ts,html}"
+    "prettier": "npx prettier --check ./src/**/*.{ts,html}",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "repository": {
     "type": "git",
