@@ -1,10 +1,10 @@
-import { GameObjects, Tilemaps, Scene, Types } from "phaser";
+import { Tilemaps, Scene, Types } from "phaser";
 import { Player } from "../../classes/player";
 import { Coin } from "../../classes/coin";
 import { updateDisplayedScore, updateDisplayedTimeLeft } from "../../ui/updateUI";
 
 export class LevelScene extends Scene {
-  private player!: GameObjects.Sprite;
+  private player!: Player;
   private map!: Tilemaps.Tilemap;
   private testTileset!: Tilemaps.Tileset;
   private platformsLayer!: Tilemaps.TilemapLayer;
@@ -22,7 +22,7 @@ export class LevelScene extends Scene {
   constructor() {
     super("level-scene");
 
-    this.timeLeft = 30 * 1000; //in ms
+    this.timeLeft = 3 * 1000; //in ms
     this.score = 0;
   }
 
@@ -53,8 +53,13 @@ export class LevelScene extends Scene {
   update(elapsed: number, delta: number): void {
     this.player.update(this.inputs);
 
-    this.timeLeft -= delta;
-    updateDisplayedTimeLeft(this.timeLeft);
+    const updatedTimeLeft = this.timeLeft - delta;
+    if (updatedTimeLeft <= 0) {
+      this.gameEnd();
+    } else {
+      this.timeLeft = updatedTimeLeft;
+      updateDisplayedTimeLeft(updatedTimeLeft);
+    }
   }
 
   private initCamera(): void {
@@ -76,5 +81,14 @@ export class LevelScene extends Scene {
   updateScore(newPoints: number) {
     this.score += newPoints;
     updateDisplayedScore(this.score);
+  }
+
+  gameEnd() {
+    this.player.die();
+    this.input.keyboard.shutdown();
+
+    setTimeout(() => {
+      this.scene.start("LevelScene");
+    }, 1500);
   }
 }

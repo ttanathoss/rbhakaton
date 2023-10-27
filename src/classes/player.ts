@@ -30,7 +30,7 @@ export class Player extends Actor {
     }
   }
 
-  reFollowPlayer() {
+  private reFollowPlayer() {
     this.scene.physics.world.bounds.setPosition(this.scene.cameras.main.worldView.x, 0);
 
     if (this.getBody().position.x + this.getBody().width / 2 > this.scene.cameras.main.midPoint.x) {
@@ -38,7 +38,7 @@ export class Player extends Actor {
     }
   }
 
-  private initAnimations(): void {
+  private initAnimations() {
     this.scene.anims.create({
       key: "jump",
       frames: this.scene.anims.generateFrameNames("player", {
@@ -68,5 +68,9 @@ export class Player extends Actor {
       frameRate: 4,
       repeat: -1,
     });
+  }
+
+  die() {
+    this.setVelocity(0, 250);
   }
 }
