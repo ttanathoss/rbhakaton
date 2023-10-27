@@ -16,18 +16,18 @@ export class LevelScene extends Scene {
   private furnitureLayer!: Tilemaps.TilemapLayer;
 
   private inputs!: Types.Input.Keyboard.CursorKeys;
-  private timeLeft: number;
-  private score: number;
+  private timeLeft!: number;
+  private score!: number;
 
   constructor() {
     super("LevelScene");
-
-    this.timeLeft = 30 * 1000; //in ms
-    this.score = 0;
   }
 
   preload(): void {
     toggleScoreTime(true);
+
+    this.timeLeft = 30 * 1000; //in ms
+    this.score = 0;
 
     this.load.baseURL = "assets/";
     this.load.atlas("player", "spritesheets/mr_finish_walk_jump_sheet.png", "spritesheets/mr_finish_atlas.json");
