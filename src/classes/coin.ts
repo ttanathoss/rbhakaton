@@ -17,7 +17,7 @@ export class Coin {
       key: 'rotate',
       frames: scene.anims.generateFrameNames('plate', {
         prefix: 'plate-',
-        end: 7,
+        end: 6,
       }),
       frameRate: 10,
       repeat: -1

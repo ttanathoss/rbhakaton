@@ -43,7 +43,7 @@ export class Player extends Actor {
       key: "jump",
       frames: this.scene.anims.generateFrameNames("player", {
         prefix: "jump-",
-        end: 8,
+        end: 7,
       }),
       frameRate: 16,
       repeat: 0,
@@ -53,7 +53,7 @@ export class Player extends Actor {
       key: "run",
       frames: this.scene.anims.generateFrameNames("player", {
         prefix: "move-right-",
-        end: 7,
+        end: 6,
       }),
       frameRate: 16,
       repeat: -1,
