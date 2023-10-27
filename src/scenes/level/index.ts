@@ -1,6 +1,7 @@
 import { GameObjects, Tilemaps, Scene, Types } from "phaser";
 import { Player } from "../../classes/player";
 import { Coin } from "../../classes/coin";
+import { updateDisplayedScore, updateDisplayedTimeLeft } from "../../ui/updateUI";
 
 export class LevelScene extends Scene {
   private player!: GameObjects.Sprite;
@@ -15,9 +16,14 @@ export class LevelScene extends Scene {
   private furnitureLayer!: Tilemaps.TilemapLayer;
 
   private inputs!: Types.Input.Keyboard.CursorKeys;
+  private timeLeft: number;
+  private score: number;
 
   constructor() {
     super("level-scene");
+
+    this.timeLeft = 30 * 1000; //in ms
+    this.score = 0;
   }
 
   preload(): void {
@@ -33,7 +39,7 @@ export class LevelScene extends Scene {
 
   create(): void {
     this.initMap();
-    
+
     this.player = new Player(this).collideWith(this.platformsLayer);
     this.coins = new Coin(this).collideWith(this.player);
 
@@ -41,12 +47,14 @@ export class LevelScene extends Scene {
 
     this.platformsLayer.setCollisionByExclusion([-1], true);
 
-
     this.inputs = this.input.keyboard.createCursorKeys();
   }
 
-  update(): void {
+  update(elapsed: number, delta: number): void {
     this.player.update(this.inputs);
+
+    this.timeLeft -= delta;
+    updateDisplayedTimeLeft(this.timeLeft);
   }
 
   private initCamera(): void {
@@ -63,5 +71,10 @@ export class LevelScene extends Scene {
     this.testTileset = this.map.addTilesetImage("finish-map-tiles", "game-tiles"); // (tileset-name-from-Tiled, image.key )
     this.backgroundLayer = this.map.createLayer("background", this.testTileset, 0, 0); // (layer-name-from-Tiled, Tileset)
     this.platformsLayer = this.map.createLayer("platforms", this.testTileset, 0, 0); // (layer-name-from-Tiled, Tileset)
+  }
+
+  updateScore(newPoints: number) {
+    this.score += newPoints;
+    updateDisplayedScore(this.score);
   }
 }
