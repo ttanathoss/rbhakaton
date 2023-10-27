@@ -15,7 +15,7 @@ export class IntroScene extends Scene {
     this.load.baseURL = "assets/";
     this.load.image({
       key: "intro",
-      url: "spritesheets/intro.png",
+      url: "img/intro.png",
     });
   }
 
